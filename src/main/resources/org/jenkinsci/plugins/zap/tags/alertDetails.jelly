@@ -1,0 +1,47 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+	xmlns:e="/org/jenkinsci/plugins/zap/tags">
+	<div id="alertDetails">
+		<table width="100%">
+			<tr>
+				<td>Description:</td>
+				<td>
+					<textarea id="details_description" readOnly="true" rows="4"
+						cols="150" style="background-color: #F0F0F0;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>URLs:</td>
+				<td>
+					<textarea id="details_urls" readOnly="true" rows="4" cols="150"
+						style="background-color: #F0F0F0;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Solution:</td>
+				<td>
+					<textarea id="details_solution" readOnly="true" rows="4"
+						cols="150" style="background-color: #F0F0F0;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Other
+					<br />
+					information:
+				</td>
+				<td>
+					<textarea id="details_other" readOnly="true" rows="2"
+						cols="150" style="background-color: #F0F0F0;"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Reference:</td>
+				<td>
+					<textarea id="details_reference" readOnly="true" rows="2"
+						cols="150" style="background-color: #F0F0F0;"></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+</j:jelly>

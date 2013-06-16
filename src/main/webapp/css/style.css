@@ -1,0 +1,23 @@
+.alertRowHell {
+    background-color: #e0ffff;
+}
+
+.alertRowHeller {
+    background-color: #e8ffff;
+}
+
+.display-off {
+  display: none;
+}
+
+.display-on {
+    display : ;
+}
+
+.tableHeader {
+    background-color: #e0f0f0;
+}
+
+.riskColumn {
+    width: 40px;
+}

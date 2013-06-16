@@ -1,0 +1,26 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form"
+	xmlns:e="/org/jenkinsci/plugins/zap/tags">
+	<table border="1px" class="pane">
+		<e:captionLine />
+		<tr class="tableHeader">
+			<th class="riskColumn">Risk</th>
+			<th>Alert type</th>
+			<th>Alert</th>
+		</tr>
+		<j:forEach var="a" items="${it.result.alerts}">
+			<tr onclick="displayAlert(this)" class="alertRow">
+				<td>
+					<img src="${resURL}/plugin/zap/images/flag_${a.risk}_large.png" />
+				</td>
+				<td>${a.type}</td>
+				<td>${a.alert}</td>
+			</tr>
+			<tr class="display-off" >
+				<td colspan="3">
+					<e:alertDetails />
+				</td>
+			</tr>
+		</j:forEach>
+	</table>
+</j:jelly>

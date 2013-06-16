@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<maven2-moduleset>
+  <actions/>
+  <description></description>
+  <logRotator>
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>5</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>false</concurrentBuild>
+  <rootModule>
+    <groupId>org.jenkinci.plugins.test</groupId>
+    <artifactId>zap</artifactId>
+  </rootModule>
+  <goals>install</goals>
+  <aggregatorStyleBuild>true</aggregatorStyleBuild>
+  <incrementalBuild>false</incrementalBuild>
+  <perModuleEmail>true</perModuleEmail>
+  <ignoreUpstremChanges>false</ignoreUpstremChanges>
+  <archivingDisabled>false</archivingDisabled>
+  <resolveDependencies>false</resolveDependencies>
+  <processPlugins>false</processPlugins>
+  <mavenValidationLevel>-1</mavenValidationLevel>
+  <runHeadless>false</runHeadless>
+  <settingConfigId></settingConfigId>
+  <globalSettingConfigId></globalSettingConfigId>
+  <reporters/>
+  <publishers>
+    <org.jenkinsci.plugins.zap.ZapPublisher>
+      <healthReports>
+        <maxHighRisk>0</maxHighRisk>
+        <maxMediumRisk>0</maxMediumRisk>
+        <maxLowRisk>0</maxLowRisk>
+        <maxInformationalRisk>0</maxInformationalRisk>
+        <maxFalsePositiveRisk>0</maxFalsePositiveRisk>
+      </healthReports>
+      <xmlPattern>**/zap/zap-report.xml</xmlPattern>
+    </org.jenkinsci.plugins.zap.ZapPublisher>
+  </publishers>
+  <buildWrappers/>
+  <prebuilders>
+    <hudson.tasks.BatchFile>
+      <command>copy  ..\..\..\..\src\test\resources\test-job\workspace\test\pom.xml . /y
+xcopy  ..\..\..\..\src\test\resources\test-job\workspace\test\target . /s/y</command>
+    </hudson.tasks.BatchFile>
+  </prebuilders>
+  <postbuilders/>
+  <runPostStepsIfResult>
+    <name>FAILURE</name>
+    <ordinal>2</ordinal>
+    <color>RED</color>
+  </runPostStepsIfResult>
+</maven2-moduleset>

@@ -1,0 +1,22 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+	xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+	<l:layout xmlns:e="/org/jenkinsci/plugins/zap/tags" norefresh="true">
+		<l:header>
+			<link rel="stylesheet" type="text/css" href="${resURL}/plugin/zap/css/style.css" />
+			<script src="${resURL}/plugin/zap/scripts/summaryTable.js" type="text/javascript" />
+			<script type="text/javascript">
+				var result = <st:bind value="${it.result}" />
+			</script>
+		</l:header>
+
+		<st:include it="${it.build}" page="sidepanel.jelly" />
+		<l:main-panel>
+			<h2><img src="${resURL}/plugin/zap/images/zap48x48.png" />${%OWASP Zed Attack Proxy Report}</h2>
+
+			<h3>${%Alert Summary}</h3>
+			<e:summaryTable title="${%Alerts}" />
+
+		</l:main-panel>
+	</l:layout>
+</j:jelly>

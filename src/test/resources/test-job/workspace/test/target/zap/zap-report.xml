@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zap-report>
+	<alert class="object">
+		<alert type="string">Cookie set without HttpOnly flag</alert>
+		<attack type="string">cj-msTk+kc5inqFB2xdVU81j.undefined; Path=/examplepersongui</attack>
+		<description type="string">A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</description>
+		<other type="string" />
+		<param type="string">JSESSIONID</param>
+		<reference type="string">www.owasp.org/index.php/HttpOnly</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">Ensure that the HttpOnly flag is set for all cookies.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">Cross Site Request Forgery</alert>
+		<attack type="string" />
+		<description type="string">A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf. CSRF attacks are effective in a number of situations, including: * The victim has an active session on the target site. * The victim is authenticated via HTTP auth on the target site. * The victim is on the same local network as the target site. CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://projects.webappsec.org/Cross-Site-Request-Forgery http://cwe.mitre.org/data/definitions/352.html</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Medium</risk>
+		<solution type="string">Phase: Architecture and Design
+Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. For example, use anti-CSRF packages such as the OWASP CSRFGuard.
+
+Phase: Implementation
+Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.
+
+Phase: Architecture and Design
+Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330). Note that this can be bypassed using XSS.
+
+Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation. Note that this can be bypassed using XSS.
+
+Use the ESAPI Session Management control. This control includes a component for CSRF.
+
+Do not use the GET method for any request that triggers a state change.
+
+Phase: Implementation Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jsf.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=javax.faces</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jsf.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=javax.faces</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/nifty.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/nifty.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/styles.css.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/styles.css.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/themes/sam/theme.css.xhtml?ln=icefaces.ace</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/themes/sam/theme.css.xhtml?ln=icefaces.ace</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/bridge.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/bridge.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/theme/jquery-ui-1.8.19.custom.css.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/theme/jquery-ui-1.8.19.custom.css.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/ice.ee.compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/ice.ee.compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/xmlhttp/css/rime/rime.css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/xmlhttp/css/rime/rime.css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/icefaces-compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/icefaces-compat.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-1.7.2.min.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-1.7.2.min.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr-CH.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr-CH.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/jquery.tooltip.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/jquery.tooltip.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-ui-1.8.19.custom.min.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-ui-1.8.19.custom.min.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de-CH.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de-CH.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/lib/jquery.dimensions.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/lib/jquery.dimensions.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-it.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-it.js.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui//pages/index.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui//pages/index.xhtml;jsessionid=cj-msTk+kc5inqFB2xdVU81j.undefined</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-1.7.2.min.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-1.7.2.min.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-ui-1.8.19.custom.min.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-ui-1.8.19.custom.min.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr-CH.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr-CH.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-fr.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-it.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-it.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de-CH.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery.ui.datepicker-de-CH.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/jquery.tooltip.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/jquery.tooltip.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/lib/jquery.dimensions.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jquery-tooltip/lib/jquery.dimensions.js.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/pages/index.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/pages/index.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jsf.js.xhtml?ln=javax.faces</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/jsf.js.xhtml?ln=javax.faces</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/ice.ee.compat.js.xhtml?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/ice.ee.compat.js.xhtml?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/compat.js.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/compat.js.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/nifty.js.xhtml?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/nifty.js.xhtml?ln=js&amp;v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/bridge.js.xhtml?v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/bridge.js.xhtml?v=346628797</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/styles.css.xhtml?ln=css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/styles.css.xhtml?ln=css</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/theme/jquery-ui-1.8.19.custom.css.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/theme/jquery-ui-1.8.19.custom.css.xhtml?ln=jquery</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/icefaces-compat.js.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui/javax.faces.resource/icefaces-compat.js.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Content-Type-Options header missing</alert>
+		<attack type="string" />
+		<description type="string">The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string" />
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Low</risk>
+		<solution type="string">This check is specific to Internet Explorer 8 and Google Chrome. Ensure each page sets a Content-Type header and the X-CONTENT-TYPE-OPTIONS if the Content-Type header is unknown</solution>
+		<url type="string">http://localhost:8080/examplepersongui//pages/index.xhtml</url>
+	</alert>
+	<alert class="object">
+		<alert type="string">X-Frame-Options header not set</alert>
+		<attack type="string" />
+		<description type="string">X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks</description>
+		<other type="string" />
+		<param type="string" />
+		<reference type="string">http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx?Redirected=true</reference>
+		<reliability type="string">Warning</reliability>
+		<risk type="string">Informational</risk>
+		<solution type="string">Most modern Web browsers support the X-Frame-Options HTTP header, ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.</solution>
+		<url type="string">http://localhost:8080/examplepersongui//pages/index.xhtml
+		</url>
+	</alert>
+</zap-report>
